@@ -5,7 +5,7 @@
 --%>
 <div id="loginBox">
 
-    <p class="error">Invalid username or password.</p>
+    <p class="error">Invalid credentials.</p>
 
     <p>Return to <strong><a href="login.jsp">admin login</a></strong>.</p>
 

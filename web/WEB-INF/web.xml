@@ -39,7 +39,7 @@
             <url-pattern>/admin/error.jsp</url-pattern>
             <include-prelude>/admin/jspf/header.jspf</include-prelude>
             <include-coda>/admin/jspf/footer.jspf</include-coda>
-            </jsp-property-group>
+        </jsp-property-group>
     </jsp-config>
     <security-constraint>
         <display-name>checkout</display-name>
@@ -53,13 +53,26 @@
             <description/>
             <transport-guarantee>CONFIDENTIAL</transport-guarantee>
         </user-data-constraint>
-    </security-constraint>
-    <login-config>
-        <auth-method>FORM</auth-method>
-        <realm-name>file</realm-name>
-        <form-login-config>
+        <!--</security-constraint>-->
+        <!--<login-config>-->
+        <!--        <auth-method>FORM</auth-method>
+        <realm-name>file</realm-name>-->
+        <!--        <form-login-config>
             <form-login-page>/admin/login.jsp</form-login-page>
             <form-error-page>/admin/error.jsp</form-error-page>
-        </form-login-config>
-    </login-config>
+        </form-login-config>-->
+    </security-constraint>
+    <display-name>Access Manager Security Constraint</display-name>
+    <web-resource-collection>
+        <web-resource-name>OpenID Login</web-resource-name>
+        <url-pattern>/admin/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+        <role-name>Admin</role-name>
+    </auth-constraint>
+</security-constraint>	
+<security-role>
+    <role-name>Admin</role-name>
+    <group-name>Admin</group-name>
+</security-role>
 </web-app>
